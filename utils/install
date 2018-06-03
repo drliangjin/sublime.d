@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+
+SUPPORT_OS=(macos ubuntu)
+HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+PACKAGE_CONTROL_URL=https://packagecontrol.io/Package%20Control.sublime-package
+PACKAGE_CONTROL_FILE=Package\ Control.sublime-package
+PACKAGE_CONTROL_PATH_MACOS=~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+PACKAGE_CONTROL_PATH_UBUNTU=~/.config/sublime-text-3/Installed\ Packages
+
+# detect os, return 0 if is_macos
+function is_macos() {
+  [[ "$(uname -s)" = "Darwin" ]] || return 1
+}
+
+# detect os, return 0 if is_ubuntu
+function is_ubuntu() {
+  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+}
+
+# loop through is_os functions
+# if get_os 0 then get the match, or 1 to get the wrong match
+function get_os() {
+  for os in ${SUPPORT_OS[@]}; do
+    is_${os}
+    if [[ $? == ${1:-0} ]]; then
+      echo ${os}
+    fi
+  done
+}
+
+function command_exists() {
+  command -v "$@" > /dev/null 2>&1
+}
+
+function install_subl() {
+  local os_name=$(get_os)
+  if ! command_exists subl; then
+    echo " => installing Sublime Text"
+    case "${os_name}" in
+      macos)
+        if ! command_exists brew; then
+          echo " => installing Homebrew..."
+          /usr/bin/ruby -e "$(curl -fsSL ${HOMEBREW_URL})" > /dev/null 2>&1
+          if [[ $? != 0 ]]; then
+            echo " => unable to install Homebrew!"
+            exit 1
+          fi
+        fi
+        brew install sublime-text
+        if [[ $? != 0 ]]; then
+          echo " => unable to install Sublime Text!"
+          exit 1
+        fi
+        
+        subl
+        
+        echo " => installing Package Control..."
+        curl -fsSL ${PACKAGE_CONTROL_URL} -o ${PACKAGE_CONTROL_PATH_MACOS}/${PACKAGE_CONTROL_FILE}
+      ;;
+      ubuntu)
+        if ! command_exists wget; then
+          echo " => installing wget..."
+          sudo apt-get install -y wget
+        fi
+        wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+        sudo apt-get install -y apt-transport-https
+        echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+        sudo apt-get update -y
+        sudo apt-get install -y sublime-text
+        
+        subl
+        
+        echo " => installing Package Control..."
+        wget -q ${PACKAGE_CONTROL_URL} -O ${PACKAGE_CONTROL_PATH_UBUNTU}/${PACKAGE_CONTROL_FILE}
+      ;;
+      *)
+        echo "This script is limited to ${supported_os[@]}"
+        exit 1
+}
