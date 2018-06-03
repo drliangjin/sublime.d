@@ -83,7 +83,7 @@ function install_package_control() {
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
           mkdir -p "${PACKAGE_DIR_MACOS}"
-          curl -fsSL ${PACKAGE_URL} -o ${package}
+          curl -fsSL ${PACKAGE_URL} -o "${package}"
           if [[ $? != 0 ]]; then
             echo " => unable to download ${PACKAGE_NAME}!"
             exit 1
