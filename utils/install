@@ -79,3 +79,5 @@ function install_subl() {
     echo "Sublime Text 3 is already installed!"
   fi
 }
+
+install_subl
