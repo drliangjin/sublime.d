@@ -100,7 +100,7 @@ function install_package_control() {
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
           mkdir -p "${PACKAGE_DIR_UBUNTU}"
-          wget -q ${PACKAGE_URL} -O ${package}
+          wget -q "${PACKAGE_URL}" -O ${package}
           if [[ $? != 0 ]]; then
             echo " => unable to download ${PACKAGE_NAME}!"
             exit 1
