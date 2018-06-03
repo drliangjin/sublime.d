@@ -75,5 +75,7 @@ function install_subl() {
         exit 1
       ;;
     esac
+  else
+    echo "Sublime Text 3 is already installed!"
   fi
 }
