@@ -95,7 +95,7 @@ function install_package_control() {
         fi    
       ;;
       ubuntu)
-        local package="${PACKAGE_DIR_UBUNTU}/${PACKAGE_FILE}"
+        local package=${PACKAGE_DIR_UBUNTU}/${PACKAGE_FILE}
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
           mkdir -p "${PACKAGE_DIR_UBUNTU}"
