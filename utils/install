@@ -52,7 +52,7 @@ function install_subl() {
           echo "Ready to brew!"
         fi
 
-        brew install sublime-text
+        brew cask install sublime-text
         if [[ $? != 0 ]]; then
           echo " => unable to install Sublime Text!"
           exit 1
