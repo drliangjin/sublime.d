@@ -77,4 +77,6 @@ function install_subl() {
       *)
         echo "This script is limited to ${supported_os[@]}"
         exit 1
+      esac
+    fi
 }
