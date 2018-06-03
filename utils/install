@@ -82,7 +82,7 @@ function install_package_control() {
         local package=${PACKAGE_DIR_MACOS}/${PACKAGE_FILE}
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
-          mkdir -p ${PACKAGE_DIR_MACOS} && \
+          mkdir -p "${PACKAGE_DIR_MACOS}"
           curl -fsSL ${PACKAGE_URL} -o ${package}
           if [[ $? != 0 ]]; then
             echo " => unable to download ${PACKAGE_NAME}!"
@@ -97,7 +97,7 @@ function install_package_control() {
         local package=${PACKAGE_DIR_UBUNTU}/${PACKAGE_FILE}
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
-          mkdir -p ${PACKAGE_DIR_UBUNTU}
+          mkdir -p "${PACKAGE_DIR_UBUNTU}"
           wget -q ${PACKAGE_URL} -O ${package}
           if [[ $? != 0 ]]; then
             echo " => unable to download ${PACKAGE_NAME}!"
