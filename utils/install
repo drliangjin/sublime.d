@@ -59,10 +59,6 @@ function install_subl() {
         curl -fsSL ${PACKAGE_CONTROL_URL} -o ${PACKAGE_CONTROL_PATH_MACOS}/${PACKAGE_CONTROL_FILE}
       ;;
       ubuntu)
-        if ! command_exists wget; then
-          echo " => installing wget..."
-          sudo apt-get install -y wget
-        fi
         wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
         sudo apt-get install -y apt-transport-https
         echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -77,6 +73,7 @@ function install_subl() {
       *)
         echo "This script is limited to ${supported_os[@]}"
         exit 1
-      esac
-    fi
+      ;;
+    esac
+  fi
 }
