@@ -35,4 +35,12 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install sublime-text-installer
 ```
+## :loudspeaker: Updates
 
+## :construction: Development
+
+## :medal_military: Acknowledgement
+
+## :open_book: Resources
+
+## :raising_hand_woman: FAQ
