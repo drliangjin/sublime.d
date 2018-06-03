@@ -5,8 +5,32 @@
 	],
 	"installed_packages":
 	[
-		"Anaconda",
+		// Genernal UI
+		"A File Icon",
+		// Themes
+		"",
+		// File Management
+		"SideBarEnhancements",
+		"AdvancedNewFile",
+		// Development
+		"SublimeLinter",
+		"SublimeREPL",
+		"BracketHighlighter",
+		// Version Control
+		"Git",
+		"GitGutter",
+		"Gitignore",
+		// Markdown
+		"MarkdownPreview",
+		"MarkdownEditing",
+		// Web
 		"Emmet",
-		"GitGutter"
+		// Python Development
+		"Anaconda",
+		"Djaneiro",
+		"PyYapf Python Formatter",
+		"SublimeLinter-pep8",
+		"SublimeLinter-pyflakes",
+		"requirementstxt"
 	]
 }
