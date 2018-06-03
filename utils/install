@@ -5,8 +5,10 @@ SUPPORT_OS=(macos ubuntu)
 HOMEBREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
 PACKAGE_URL="https://packagecontrol.io/Package%20Control.sublime-package"
 
-PACKAGE_NAME=Package\ Control
-PACKAGE_FILE=Package\ Control.sublime-package
+PACKAGE_NAME="Package Control"
+PACKAGE_FILE="Package Control.sublime-package"
+# if escaping space using \ , then dont double quotes;
+# if double quotes then don't escape.
 PACKAGE_DIR_MACOS=$HOME/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 PACKAGE_DIR_UBUNTU=$HOME/.config/sublime-text-3/Installed\ Packages
 
