@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 SUPPORT_OS=(macos ubuntu)
-HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+
+HOMEBREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
+PACKAGE_URL="https://packagecontrol.io/Package%20Control.sublime-package"
 
 PACKAGE_NAME=Package\ Control
-PACKAGE_URL=https://packagecontrol.io/Package%20Control.sublime-package
+
 PACKAGE_FILE=Package\ Control.sublime-package
 PACKAGE_DIR_MACOS=$HOME/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 PACKAGE_DIR_UBUNTU=$HOME/.config/sublime-text-3/Installed\ Packages
