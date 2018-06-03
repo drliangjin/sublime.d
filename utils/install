@@ -43,11 +43,15 @@ function install_subl() {
         if ! command_exists brew; then
           echo " => installing Homebrew..."
           /usr/bin/ruby -e "$(curl -fsSL ${HOMEBREW_URL})" > /dev/null 2>&1
-          if [[ $? != 0 ]]; then
-            echo " => unable to install Homebrew!"
-            exit 1
-          fi
+            if [[ $? != 0 ]]; then
+              echo " => unable to install Homebrew!"
+              exit 1
+            fi
+          echo " => installing Homebrew...done"
+        else
+          echo "Ready to brew!"
         fi
+
         brew install sublime-text
         if [[ $? != 0 ]]; then
           echo " => unable to install Sublime Text!"
@@ -67,7 +71,7 @@ function install_subl() {
       ;;
     esac
   else
-    echo "Sublime Text 3 is already installed!"
+    echo "Sublime Text 3 already exists..."
   fi
 }
 
@@ -75,7 +79,7 @@ function install_package_control() {
     local os_name=$(get_os)
     case "${os_name}" in
       macos)
-        package=${PACKAGE_DIR_MACOS}/${PACKAGE_FILE}
+        local package=${PACKAGE_DIR_MACOS}/${PACKAGE_FILE}
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
           mkdir -p ${PACKAGE_DIR_MACOS}
@@ -90,7 +94,7 @@ function install_package_control() {
         fi    
       ;;
       ubuntu)
-        package=${PACKAGE_DIR_UBUNTU}/${PACKAGE_FILE}
+        local package=${PACKAGE_DIR_UBUNTU}/${PACKAGE_FILE}
         if [[ ! -f "${package}" ]]; then
           echo " => installing ${PACKAGE_NAME}..."
           mkdir -p ${PACKAGE_DIR_UBUNTU}
