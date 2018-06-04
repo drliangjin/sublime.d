@@ -1,7 +1,7 @@
 # Sublime-Text 3 Configuration
 Created with :heart: by Dr Liang Jin
 
-## :zap: Quick Start
+## :package: Quick Start
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/drliangjin/.sublime.d/master/tools/install)"
 ```
