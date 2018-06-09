@@ -17,7 +17,8 @@ brew cask install sublime-text
 ```
 - Or, install [Sublime Text](https://www.sublimetext.com/) -- develop version:
 ```bash
-brew cask install homebrew/cask-versions/sublime-text-dev
+brew tap homebrew/cask-versions
+brew cask install sublime-text-dev
 ```
 ### Ubuntu
 Since [Sublime Text](https://www.sublimetext.com/) is a proprietary application, it is not listed in the office Ubutun package repositories by default. However, We can add [Sublime Text](https://www.sublimetext.com/) to the package repositories. Details see [Linux Package Manager Repositories](https://www.sublimetext.com/docs/3/linux_repositories.html).
