@@ -3,7 +3,7 @@ Created with :heart: by Dr Liang Jin
 
 ## :rocket: Quick Start
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/drliangjin/mini-sublime/master/tools/install)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/drliangjin/.sublime.d/master/tools/install)"
 ```
 
 ## :scroll: Introduction
